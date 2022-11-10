@@ -1,6 +1,7 @@
 package com.dev.backend.domain.entity.service;
 
 import com.dev.backend.api.mapper.PessoaMapper;
+import com.dev.backend.api.request.PessoaClienteRequest;
 import com.dev.backend.api.request.PessoaRequest;
 import com.dev.backend.api.response.PessoaResponse;
 import com.dev.backend.domain.entity.Pessoa;
