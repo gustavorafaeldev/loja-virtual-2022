@@ -18,6 +18,9 @@ public class PessoaMapper {
         return mapper.map(request, Pessoa.class);
     }
 
+    public Pessoa toPessoa(PessoaClienteRequest request) {
+        return mapper.map(request, Pessoa.class);
+    }
     public Pessoa toPessoaCliente(PessoaClienteRequest request) {
         return mapper.map(request, Pessoa.class);
     }
