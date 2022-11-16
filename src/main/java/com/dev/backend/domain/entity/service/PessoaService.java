@@ -46,6 +46,11 @@ public class PessoaService {
         return null;
     }
 
+    public PessoaResponse findByEmail(String email) {
+        Pessoa pessoaByEmail = repository.findByEmail(email);
+        return mapper.toPessoaResponse(pessoaByEmail);
+    }
+
     public void delete(Long id) {
         repository.deleteById(id);
     }

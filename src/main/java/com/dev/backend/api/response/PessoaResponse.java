@@ -16,6 +16,8 @@ public class PessoaResponse {
     private String cpf;
     private String email;
     private String senha;
+    private String codigoRecuperacaoSenha;
+    private Date dataEnvioCodigo;
     private String endereco;
     private String cep;
     private Cidade cidade;

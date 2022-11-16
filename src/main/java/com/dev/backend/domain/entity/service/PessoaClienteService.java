@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -26,9 +28,11 @@ public class PessoaClienteService {
         pessoa.setDataCriacao(new Date());
         pessoa = repository.save(mapper.toPessoaCliente(request));
         permissaoPessoaService.vincularPessoaPermissaoCliente(pessoa);
-        emailService.enviarEmailTexto(pessoa.getEmail(), "Cadastro na Loja Tabajara",
-                "O registro na loja foi realizado com sucesso! Em breve você receberá a senha de acesso " +
-                        "por email");
+        Map<String, Object> propeiedades = new HashMap<>();
+        propeiedades.put("nome", pessoa.getNome());
+        propeiedades.put("mensagem", "Registro realizado com sucesso. Em breve você recebera um e-mail para cadastrar " +
+                "sua senha!");
+        emailService.enviarEmailTemplate(pessoa.getEmail(), "Cadastro na Loja Tabajara", propeiedades);
         return mapper.toPessoaResponse(pessoa);
     }
 }

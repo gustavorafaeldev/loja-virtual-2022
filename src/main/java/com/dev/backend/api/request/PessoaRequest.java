@@ -11,10 +11,13 @@ import java.util.List;
 @Data
 public class PessoaRequest {
 
+    private Long id;
     private String nome;
     private String cpf;
     private String email;
     private String senha;
+    private String codigoRecuperacaoSenha;
+    private Date dataEnvioCodigo;
     private String endereco;
     private String cep;
     private Cidade cidade;

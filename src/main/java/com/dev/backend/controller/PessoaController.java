@@ -42,4 +42,9 @@ public class PessoaController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/email")
+    public ResponseEntity<PessoaResponse> findByEmail(@RequestBody PessoaRequest request) {
+        return ResponseEntity.status(HttpStatus.OK).body(service.findByEmail(request.getEmail()));
+    }
 }
